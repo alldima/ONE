@@ -1,14 +1,13 @@
 name: CI test 1
 
 on: [push]
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: build
-    - run: |
+      run: |
        mkdir nnfw_build
           cd nnfw_build
            cmake -DCMAKE_BUILD_TYPE=Debug ../infra/nnfw
