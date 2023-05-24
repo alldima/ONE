@@ -1,0 +1,22 @@
+name: CI for build nnfw and run compilation test
+
+on:
+  pull_request:
+    branches:
+      - master
+      - release/*
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: build
+      run: |
+        mkdir nnfw_build
+        cd nnfw_build
+        sudo apt-get install libboost-all-dev
+        cmake -DCMAKE_BUILD_TYPE=Debug ../infra/nnfw
+        cd tests/nnfw_api
+        make
+    - name: run test
+        ./nnfw_api_gtest --gtest_filter=TestWhileDynamicModelLoaded.run_verify # this will be compilation test
