@@ -12,7 +12,7 @@ jobs:
         mkdir nnfw_build
         cd nnfw_build
         sudo apt-get install libboost-all-dev
-    #    cmake -DCMAKE_BUILD_TYPE=Debug ../infra/nnfw
+        cmake -DCMAKE_BUILD_TYPE=Debug ../infra/nnfw
     #       cd tests/nnfw_api
     #       make
     #       ./nnfw_api_gtest --gtest_filter=TestWhileDynamicModelLoaded.run_verify
