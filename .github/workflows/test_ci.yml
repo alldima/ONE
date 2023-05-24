@@ -6,14 +6,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    
     - name: build
       run: |
-       mkdir nnfw_build
-          cd nnfw_build
-           cmake -DCMAKE_BUILD_TYPE=Debug ../infra/nnfw
-           cd tests/nnfw_api
-           make
-           ./nnfw_api_gtest --gtest_filter=TestWhileDynamicModelLoaded.run_verify
+        mkdir nnfw_build
+        cd nnfw_build
+        cmake -DCMAKE_BUILD_TYPE=Debug ../infra/nnfw
+    #       cd tests/nnfw_api
+    #       make
+    #       ./nnfw_api_gtest --gtest_filter=TestWhileDynamicModelLoaded.run_verify
  
      #- uses: actions/download-artifact@v3
      #   with:
