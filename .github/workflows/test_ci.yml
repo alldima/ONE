@@ -3,7 +3,7 @@ name: CI test
 on: [push]
 jobs:
   build:
-    runs-on: [ code-default ]
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: run test
